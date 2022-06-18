@@ -19,6 +19,7 @@ async def channel_subscribe_get(hub_challenge: str = Query(default=None,alias="h
 @app.post("/channel_subscribe")
 async def channel_subscribe(request: Request):
     content_type = request.headers['Content-Type']
+    print(content_type)
     if content_type == 'application/xml':
         body = await request.body()
         body_data = xmltodict.parse(body)
@@ -54,7 +55,8 @@ async def channel_subscribe(request: Request):
 
 
 @app.get("/channel_list")
-async def root():
+async def channel_list():
+    print("hoooo")
     with open('data.json') as f:
         data = json.load(f)
     return data
