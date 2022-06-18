@@ -20,3 +20,10 @@ async def channel_subscribe(channel_id: int):
         json.dump(data, f, indent=2)
 
     return new_channel
+
+
+@app.get("/channel_list")
+async def root():
+    with open('data.json') as f:
+        data = json.load(f)
+    return data
