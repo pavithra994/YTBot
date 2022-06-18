@@ -20,7 +20,7 @@ async def channel_subscribe_get(hub_challenge: str = Query(default=None,alias="h
 async def channel_subscribe(request: Request):
     content_type = request.headers['Content-Type']
     print(content_type)
-    if content_type == 'application/xml':
+    if content_type == 'application/atom+xml':
         body = await request.body()
         body_data = xmltodict.parse(body)
         print(body_data)
@@ -65,7 +65,7 @@ async def channel_list():
 @app.post("/submit")
 async def submit(request: Request):
     content_type = request.headers['Content-Type']
-    if content_type == 'application/xml':
+    if content_type == 'application/atom+xml':
         body = await request.body()
         body_data = xmltodict.parse(body)
         print(body_data)
