@@ -27,7 +27,8 @@ async def channel_subscribe(request: Request):
             json.dump(data, f, indent=2)
         #
         # return new_channel
-        return body_data
+
+        return Response(status_code=204)
     else:
         raise HTTPException(status_code=400, detail=f'Content type {content_type} not supported')
     # new_channel =  {"channel_id": channel_id}
