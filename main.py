@@ -8,7 +8,7 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 
-@app.get("/channel_subscribe/")
+@app.get("/channel_subscribe")
 async def channel_subscribe_get(hub_challenge: str = Query(default=None,alias="hub.challenge")):
     # for key, value in kwargs.items():
     #     print("%s == %s" % (key, value))
